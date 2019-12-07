@@ -1,0 +1,26 @@
+{
+  "name": "Hot-Mini-restaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakob1996/Hot-Mini-restaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hakob1996/Hot-Mini-restaurant/issues"
+  },
+  "homepage": "https://github.com/hakob1996/Hot-Mini-restaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1"
+  }
+}

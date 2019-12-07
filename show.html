@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hot Mini Restaurant</h1>
+            <h3>Current reservations and waiting list</h3>
+            <hr>
+            <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make a
+                    reservation</button></a>
+            <a href="/"><button class="btn btn-primary btn-lg"><span></span> Home</button></a>
+
+        </div>
+
+    </div>
+
+    <div class="container" style="padding:10px; ">
+        <div style="padding:5px;">
+            <p class="jumbotron" style="padding:10px; margin:0px;">Current Reservations</p>
+            <div id="currentTables"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container" style="padding:10px; ">
+        <div style="padding:5px;">
+            <p class="jumbotron" style="padding:10px; margin:0px;">Waiting list</p>
+            <div id="waitingtables"></div>
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+        const queryURL = "http://localhost:3000/api/tables";
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            
+                for (var i = 0; i < 5; i++) {
+                    var pEl = $("<p>");
+                    pEl.text(response[i].Id);
+                    $("#currentTables").append(pEl);
+                }
+
+        });
+
+        const queryURL1 = "http://localhost:3000/api/waiting";
+        $.ajax({
+            url: queryURL1,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            
+               
+            
+
+                for (var j = 0; j >= 0 ; j++){
+                var pEl = $("<p>");
+                pEl.text(response[j].Id);
+                $("#waitingtables").append(pEl);
+                }
+
+        });
+
+    </script>
+</body>
+
+</html>
